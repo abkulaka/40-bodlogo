@@ -193,6 +193,45 @@ String: “Possible” эсвэл “Impossible”
 Бөмбөгний тоо хэтэрхий их байхгүй (n ≤ 100)
 Сав бүр өөр төрөл бөмбөг агуулахгүй нөхцлийг солилцоогоор хангаж чадах эсэхийг шалгана.
 
+# ![image](https://github.com/user-attachments/assets/67e9974b-1745-4efa-860e-3e97432da829)
+# https://www.hackerrank.com/challenges/encryption/problem?isFullScreen=true
+# Шифрлэх даалгаврын орчуулга:
+Англи текстийг дараах шифрлэх схем ашиглан шифрлэх шаардлагатай.
+Эхлээд текст доторх бүх зай (space)-г устгана.
+Дараа нь тэмдэгтүүдийг нэгэн төрлийн мөр, баганын хязгаарлалттай сүлжээнд (grid) байрлуулна.
+Жишээ:
+Жишээ нь, доорх текст өгөгдсөн бол:
+if man was meant to stay on the ground god would have given us roots
+Spaces-ийг устгасны дараа:
+ifmanwasmeanttostayonthegroundgodwouldhavegivenusroots
+Энэ нь 54 тэмдэгттэй.
+Тэгвэл:
+L = 54
+floor(sqrt(L)) = 7
+ceil(sqrt(L)) = 8
+→ 7 ≤ rows ≤ columns ≤ 8 гэсэн нөхцлийг хангах хамгийн бага rows * columns талбайтай grid нь 7 мөр, 8 багана байна.
+Grid-д оруулбал:
+ifmanwas
+meanttos
+tayonthe
+groundgo
+dwouldha
+vegivenu
+sroots
+Шифрлэгдсэн үр дүн:
+Баганаар дараалан тэмдэгтүүдийг авч, хооронд нь зайтай бичнэ:
+imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
+✅ Функцийн тайлбар:
+encryption гэдэг функц нь дараах параметртэй:
+Параметр:
+string s – шифрлэх англи текст
+Буцаах утга:
+string – шифрлэгдсэн текст
+✅ Оролтын формат:
+Нэг мөрөнд шифрлэх текст өгөгдөнө.
+Зөвхөн жижиг үсгүүд (a–z) болон зай (space, ascii 32) агуулагдана.
+
+
 
 
 
