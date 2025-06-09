@@ -2,28 +2,90 @@ import java.io.*;
 import java.util.*;
 
 public class Solution {
+
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int n, q;
+        String[] firstInput = bufferedReader.readLine().split(" ");
+        n = Integer.parseInt(firstInput[0]);
+        q = Integer.parseInt(firstInput[1]);
 
-        int n = Integer.parseInt(br.readLine().trim());
-
-        String firstLineText = null;
-        String fourthLineText = null;
-
-        for (int i = 1; i <= n; i++) {
-            String line = br.readLine();
-            String[] parts = line.split(" ");
-            if (parts.length == 2) {
-                if (i == 1) firstLineText = parts[1];
-                if (i == 4) fourthLineText = parts[1];
-            }
+        String[] numberStr = bufferedReader.readLine().split(" ");
+        List<Integer> number = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            number.add(Integer.parseInt(numberStr[i]));
         }
 
-       
-        System.out.println(firstLineText.charAt(firstLineText.length() - 1));
-        
-        System.out.println(fourthLineText.charAt(fourthLineText.length() - 1));
-       
-        System.out.println(firstLineText.charAt(0));
+        List<Integer> result = Result.waiter(number, q);
+
+        for (Integer val : result) {
+            System.out.println(val);
+        }
+
+        bufferedReader.close();
     }
 }
+
+class Result {
+
+    public static List<Integer> waiter(List<Integer> number, int q) {
+        List<Integer> result = new ArrayList<>();
+
+        List<Integer> primes = generatePrimes(q);
+
+        Stack<Integer> currentStack = new Stack<>();
+        for (int num : number) {
+            currentStack.push(num);
+        }
+
+        for (int i = 0; i < q; i++) {
+            Stack<Integer> nextStack = new Stack<>();
+            Stack<Integer> divisibleStack = new Stack<>();
+            int prime = primes.get(i);
+
+            while (!currentStack.isEmpty()) {
+                int top = currentStack.pop();
+                if (top % prime == 0) {
+                    divisibleStack.push(top);
+                } else {
+                    nextStack.push(top);
+                }
+            }
+
+            while (!divisibleStack.isEmpty()) {
+                result.add(divisibleStack.pop());
+            }
+
+            currentStack = nextStack;
+        }
+
+        while (!currentStack.isEmpty()) {
+            result.add(currentStack.pop());
+        }
+
+        return result;
+    }
+
+    private static List<Integer> generatePrimes(int q) {
+        List<Integer> primes = new ArrayList<>();
+        int num = 2;
+        while (primes.size() < q) {
+            if (isPrime(num)) {
+                primes.add(num);
+            }
+            num++;
+        }
+        return primes;
+    }
+
+    private static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        if (n <= 3) return true;
+        if (n % 2 == 0 || n % 3 == 0) return false;
+        for (int i = 5; i * i <= n; i += 6) {
+            if (n % i == 0 || n % (i + 2) == 0) return false;
+        }
+        return true;
+    }
+}
+v
