@@ -7,11 +7,10 @@ class Result {
         int mod = 1000000007;
         int n = s.length();
 
-        int[] leftCount = new int[26];
-        int[] rightCount = new int[26];
-        int[][] pairLeft = new int[26][26];
+        int[] leftCount = new int[26];   // counts chars before i
+        int[] rightCount = new int[26];  // counts chars after i
+        int[][] pairCount = new int[26][26]; // counts pairs formed so far
 
-        // Count all characters initially in rightCount
         for (int i = 0; i < n; i++) {
             rightCount[s.charAt(i) - 'a']++;
         }
@@ -22,14 +21,14 @@ class Result {
             int c = s.charAt(i) - 'a';
             rightCount[c]--;
 
-            // Add palindromes formed by pairs crossing this character
             for (int j = 0; j < 26; j++) {
-                result = (result + (long) pairLeft[j][c] * rightCount[j]) % mod;
+                // Count palindromes formed ending at c, starting with j
+                result = (result + ((long) pairCount[j][c] * rightCount[j]) % mod) % mod;
             }
 
-            // Update pairLeft counts with pairs ending at this character
             for (int j = 0; j < 26; j++) {
-                pairLeft[j][c] += leftCount[j];
+                // Add pairs where first char = j and second char = c
+                pairCount[j][c] = (pairCount[j][c] + leftCount[j]) % mod;
             }
 
             leftCount[c]++;
