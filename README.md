@@ -1,5 +1,5 @@
 # 40-bodlogo
-# ![image](https://github.com/user-attachments/assets/80cef4ed-9880-46a6-a8f4-e45c0dd33f17)
+# ![image](https://github.com/user-attachments/assets/7b4ce046-5fcc-4062-8b3f-7918dfa1063c)
 # https://www.hackerrank.com/challenges/magic-square-forming/problem?isFullScreen=true
 # Бид "шидэт квадрат" гэж дараах нөхцөлийг хангасан 3x3 хэмжээтэй матрицыг хэлнэ:
 1-ээс 9 хүртэлх давтагдахгүй эерэг тоонууд агуулах ба
