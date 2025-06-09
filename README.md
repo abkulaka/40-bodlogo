@@ -574,6 +574,31 @@ s: тэмдэгт мөр (string)
 Оролт (Input Format):
 Нэг мөр текст s, латин жижиг үсэгтэй тэмдэгт мөр байна.
 
+# ![image](https://github.com/user-attachments/assets/0723b58c-e131-47bc-943b-570997523b32)
+# https://www.hackerrank.com/challenges/sparse-arrays/problem?isFullScreen=true
+#Тайлбар:
+Танд input мөрүүдийн цуглуулга болон query мөрүүдийн цуглуулга өгөгдсөн.
+Бүх query мөр бүрийн хувьд, тухайн мөр input жагсаалтанд хэдэн удаа давтагдсан байгааг олно.
+Үр дүнг массив (array) хэлбэрээр буцаа.
+Жишээ:
+input = ["abc", "def", "abc"]
+query = ["abc", "def", "gh"]
+"abc" 2 удаа, "def" 1 удаа, "gh" 0 удаа орсон байна.
+Тэгэхээр хариу нь: [2, 1, 0]
+Функцийн тодорхойлолт:
+List<Integer> matchingStrings(List<String> stringList, List<String> queries)
+Параметрууд:
+stringList: Хайлт хийх үндсэн текстүүд (input мөрүүдийн жагсаалт)
+queries: Хайх хүсэлтүүдийн жагсаалт
+Буцаах утга:
+List<Integer>: queries бүрт таарсан тоог агуулсан массив.
+Оролтын формат:
+Эхний мөр: n — stringList-ийн хэмжээ
+Дараагийн n мөр: тус бүр нь нэг stringList мөр
+Дараагийн мөр: q — queries-ийн хэмжээ
+Дараагийн q мөр: тус бүр нь нэг query мөр
+
+
 
 
 
